@@ -3,6 +3,8 @@
 2. RTe&single euler 預留誤差要一致! 超重要!!!!
 3. forcedetect3.py要開啟
 4. 研磨完記得儲存力資料 他媽的*
+5.revise_Tpoint.txt 也要記得存!
+
 
 trajectory.py
 
