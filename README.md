@@ -19,7 +19,7 @@ RTe_to_ruler.py  #粗磨+細磨
 手臂誤差 = "-" 10
 
 
-RTe_to_ruler2.py  #手臂誤差分開輸入 
+RTe_to_ruler2.py  #手臂誤差分開輸入 (垃圾)
 
 ![image](https://github.com/yoriii2000/fuckuhsuzting/assets/111038997/f6ea2b25-d827-4232-91d0-006fa44feb78)
 
