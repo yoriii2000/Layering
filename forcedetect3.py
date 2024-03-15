@@ -6,7 +6,6 @@ import numpy as np
 import matplotlib.pyplot as plt
 import os
 import math
-
 import single_pro_euler
 
 def Sq2(value):
@@ -17,13 +16,13 @@ def Sq2(value):
 connect_sensor_file = "connect_sensor.txt"
 return_robot_file = "return_robot.txt"
 
-return_robot = open(return_robot_file, "w")
-return_robot.write(str(0))
-return_robot.close()
-connect_sensor = open(connect_sensor_file, "w")
-connect_sensor.write(str(0))
-connect_sensor.close()
-input("change 0")
+# return_robot = open(return_robot_file, "w")
+# return_robot.write(str(0))
+# return_robot.close()
+# connect_sensor = open(connect_sensor_file, "w")
+# connect_sensor.write(str(0))
+# connect_sensor.close()
+# input("change 0")
 
 if __name__ == '__main__':
 
@@ -33,7 +32,6 @@ if __name__ == '__main__':
     print("file_exist_status")
     print(file_exist_status)
     reviseT_path = "revise_Tpoint.txt"
-
     run = -1
     resultfile_no = 0
     averageline_time_file = open("force data/average1line_times.txt", 'w').close()
@@ -57,6 +55,7 @@ if __name__ == '__main__':
             f = open(file_path, 'r')
             time.sleep(0.1)
             value = int(f.read())
+
             resultfile_no = resultfile_no + 1
             if value == 1:
                 time.sleep(0.1)
@@ -93,6 +92,7 @@ if __name__ == '__main__':
                 re_time = np.array([])
                 aftertouch_times = np.array([])
                 aftertouch_dataF = np.array([])
+
                 # starttime = time.time()
 
                 plt.figure(figsize=(8, 4), dpi=95)
@@ -156,7 +156,7 @@ if __name__ == '__main__':
                             response = ser.readline()
                             # print("read : %s" % response)
 
-                            if len(response) > 50:  #我又忘記這是啥了
+                            if len(response) > 50:
                                 whilerun = whilerun + 1
                                 # print('whilerun = ', whilerun)
                                 print("read : %s" % response)
@@ -226,7 +226,7 @@ if __name__ == '__main__':
                                 # real_begin = np.asarray([])
                                 if len(dataF) == 30:
                                     for len_data in range(0, len(dataF)):
-                                        if abs(dataF[len_data]) < 1:    #! 有時候dataF[len_data]每筆資料都遠大於1
+                                        if abs(dataF[len_data]) < 1:
                                             error_force = np.append(error_force, dataF[len_data])
                                     print('error_force', error_force)
                                     begin_force = float((np.sum(dataF)) / (len(dataF) - len(error_force)))   #! 覺得(np.sum(dataF))應該剔除誤差值再相加
@@ -283,7 +283,6 @@ if __name__ == '__main__':
                                     if len(loop_no) > 7 and (noise + 2) >= (loop_no[len(loop_no) - 2]) >= (noise - 2):
                                         touch_or_not = 1
                                         F_loop_no = np.append(F_loop_no, whilerun)
-
                                         print("touch_or_not = ", touch_or_not)
                                     else:
                                         print("no touch")
@@ -348,7 +347,6 @@ if __name__ == '__main__':
                                     plt.savefig("force data/plot{}".format(run))
 
                                 elif run > 0:
-
                                     print('run', run)
                                     ru = open(return_robot_file, "w")
                                     ru.write(str(1))
